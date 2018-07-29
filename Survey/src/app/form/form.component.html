@@ -1,0 +1,33 @@
+<h3>SURVEY FORM</h3>
+<div [hidden]="submitted" style="width:50%;height:50%">
+    <form #newForm="ngForm">
+                <div class="form-group">
+                <label for="firstName">FIRST NAME</label>
+                <input class="form-control" type="text" id="firstName" [(ngModel)]="object.firstName" 
+                name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">LAST NAME</label> 
+                <input class="form-control" type="text" id="lastName" [(ngModel)]="object.lastName"  
+                name="lastName" required>
+            </div>
+            <div class="form-group"> 
+                <label for="gender">GENDER</label><br>
+                <label class="radio-inline"><input type= "radio" name="gender" id="gender" value="male" 
+                    [(ngModel)]="object.gender">Male</label>
+                <label class="radio-inline"><input type= "radio" name="gender" id="gender" value="female" 
+                    [(ngModel)]="object.gender">female</label>
+            </div>
+            <div class="form-group">
+                <label for="year">YEAR</label>
+                <select class="form-control" id="year" [(ngModel)]="object.year" name="year">
+                    <option *ngFor="let year of years" value="year">{{year}}</option>
+                </select>
+            </div>
+            <div>
+                <button type="button" class="btn-btn-default" [disabled]="!newForm.form.valid" (click)="onClick()">APPLY</button>
+            </div>
+    </form>
+</div>
+
+<app-question>[object]="object"</app-question>
